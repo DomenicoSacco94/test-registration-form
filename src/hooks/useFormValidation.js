@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {validateForm, validateMail, validatePassword} from "../components/ValidationUtils";
 
 export const useFormValidation = () => {
@@ -17,7 +17,7 @@ export const useFormValidation = () => {
 
     const onSubmit = () => console.log(formData);
 
-    const parseField = (fieldName, callback) => (event) => {
+    const parseField = useCallback((fieldName, callback) => (event) => {
         const value = event.target.value;
         setValidations({
                 ...validations,
@@ -28,7 +28,7 @@ export const useFormValidation = () => {
             ...formData,
             [fieldName]: value
         })
-    }
+    },[formData, validations])
 
     const parseMail = parseField("mail", validateMail);
 

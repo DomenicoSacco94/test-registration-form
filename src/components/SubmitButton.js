@@ -1,4 +1,4 @@
-function SubmitButton({onSubmit, disabled}) {
+export const SubmitButton = ({onSubmit, disabled}) => {
 
     return (
         <div className="submitDiv">
@@ -6,5 +6,3 @@ function SubmitButton({onSubmit, disabled}) {
         </div>
     );
 }
-
-export default SubmitButton;
