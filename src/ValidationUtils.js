@@ -1,27 +1,45 @@
-export function validateMail(string) {
-    return true;
+export const validateMail = (mail) => {
+    return {
+        'valid mail address': validateEmailAddress(mail)
+    }
 }
 
-export function validateCharactersLength(string) {
-    return true;
-}
-
-export function validateLowerCase(string) {
-    return true;
-}
-
-export function validateUpperCase(string) {
-    return true;
-}
-
-export function validateNumber(string) {
-    return true;
-}
-
-export function validateSpecialCharacter(string) {
-    return true;
+export const validatePassword = (password) => {
+    return {
+        '8+ characters': validateCharactersLength(password),
+        'lowercase letter': validateLowerCase(password),
+        'uppercase letter': validateUpperCase(password),
+        'number': validateNumber(password),
+        'special character': validateSpecialCharacter(password)
+    }
 }
 
 export function validateForm(validations) {
-    return false;
+    return Object.values(validations.mail)
+        .concat(Object.values(validations.password))
+        .every(element => element);
+}
+
+function validateEmailAddress(string) {
+    return true;
+}
+
+function validateCharactersLength(string) {
+    return true;
+}
+
+function validateLowerCase(string) {
+    return true;
+}
+
+function validateUpperCase(string) {
+    return true;
+}
+
+function validateNumber(string) {
+    return true;
+}
+
+function validateSpecialCharacter(string) {
+    return true;
 }
