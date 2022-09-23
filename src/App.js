@@ -1,46 +1,18 @@
 import './App.css';
-import SubmitButton from "./SubmitButton";
-import {useState} from "react";
-import Input from "./Input";
-import {validateForm, validateMail, validatePassword} from "./ValidationUtils";
+import SubmitButton from "./components/SubmitButton";
+import Input from "./components/Input";
+import {useFormValidation} from "./hooks/useFormValidation";
 
 function App() {
 
-    const [validations, setValidations] = useState({
-        mail: validateMail(),
-        password: validatePassword()
-    });
-
-    const [isFormValid, setIsFormValid] = useState(false);
-
-    const parseMail = (event) => {
-        const mail = event.target.value;
-
-        setValidations({
-                ...validations,
-                mail: validateMail(mail)
-            }
-        )
-        setIsFormValid(validateForm(validations))
-    }
-
-    const parsePassword = (event) => {
-        const password = event.target.value;
-
-        setValidations({
-                ...validations,
-                password: validatePassword(password)
-            }
-        )
-        setIsFormValid(validateForm(validations))
-    }
+   const [isFormValid, validations, parseMail, parsePassword] = useFormValidation();
 
     return (
         <>
             <div className="appHeader"> Registration</div>
             <div className="formContainer fixedBox">
                 <div className="formColumn">
-                    <Input name="Email" type="mail" validationResults={validations.mail}
+                    <Input name="Email" type="email"
                            validationDivClass="validationDivMail" onChange={parseMail}/>
                 </div>
                 <div className="formColumn">

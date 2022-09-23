@@ -20,26 +20,31 @@ export function validateForm(validations) {
         .every(element => element);
 }
 
-function validateEmailAddress(string) {
-    return true;
+const validateEmailAddress = (email) => {
+    const expression = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
+    return expression.test(String(email).toLowerCase())
 }
 
 function validateCharactersLength(string) {
-    return true;
+    return string?.length>7;
 }
 
 function validateLowerCase(string) {
-    return true;
+    const expression = /.*[a-z].*/;
+    return !!string && expression.test(string);
 }
 
 function validateUpperCase(string) {
-    return true;
+    const expression = /.*[A-Z].*/;
+    return expression.test(string);
 }
 
 function validateNumber(string) {
-    return true;
+    const expression = /.*\d.*/;
+    return expression.test(string);
 }
 
 function validateSpecialCharacter(string) {
-    return true;
+    const expression= /[~`!#$%^&*+=\-[\]\\';,/{}|\\":<>?]/;
+    return expression.test(string);
 }
