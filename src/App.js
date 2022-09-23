@@ -5,7 +5,7 @@ import {useFormValidation} from "./hooks/useFormValidation";
 
 const App = () => {
 
-   const [isFormValid, validations, parseMail, parsePassword] = useFormValidation();
+    const [isFormValid, validations, parseMail, parsePassword] = useFormValidation();
 
     return (
         <>

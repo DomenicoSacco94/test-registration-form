@@ -26,7 +26,7 @@ const validateEmailAddress = (email) => {
 }
 
 const validateCharactersLength = (string) => {
-    return string?.length>7;
+    return string?.length > 7;
 }
 
 const validateLowerCase = (string) => {
@@ -45,6 +45,6 @@ const validateNumber = (string) => {
 }
 
 const validateSpecialCharacter = (string) => {
-    const expression= /[~`!#$%^&*+=\-[\]\\';,/{}|\\":<>?]/;
+    const expression = /[~`!#$%^&*+=\-[\]\\';,/{}|\\":<>?]/;
     return expression.test(string);
 }

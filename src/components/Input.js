@@ -8,7 +8,8 @@ function Input({name, type, validationDivClass, validationResults, onChange}) {
             <input onChange={onChange} type={type} className="input formItem" placeholder="mail"/>
             {validationResults && <div className={validationDivClass}>
                 {Object.entries(validationResults).map(([key, value]) => <div
-                    key={key}> {value ? <Image src="/correct.svg" alt="YES"/> :  <Image src="/wrong.svg" alt="NO"/>} {key} </div>)}
+                    key={key}> {value ? <Image src="/correct.svg" alt="YES"/> :
+                    <Image src="/wrong.svg" alt="NO"/>} {key} </div>)}
             </div>}
         </>
     );

@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {validateForm, validateMail, validatePassword} from "../components/ValidationUtils";
 
 export const useFormValidation = () => {
@@ -10,27 +10,21 @@ export const useFormValidation = () => {
 
     const [isFormValid, setIsFormValid] = useState(false);
 
-    const parseMail = (event) => {
-        const mail = event.target.value;
+    useEffect(() =>
+        setIsFormValid(validateForm(validations)), [validations])
 
+    const parseField = (fieldName, callback) => (event) => {
+        const value = event.target.value;
         setValidations({
                 ...validations,
-                mail: validateMail(mail)
+                [fieldName]: callback(value)
             }
         )
-        setIsFormValid(validateForm(validations))
     }
 
-    const parsePassword = (event) => {
-        const password = event.target.value;
+    const parseMail = parseField("mail", validateMail);
 
-        setValidations({
-                ...validations,
-                password: validatePassword(password)
-            }
-        )
-        setIsFormValid(validateForm(validations))
-    }
+    const parsePassword = parseField("password", validatePassword)
 
     return [isFormValid, validations, parseMail, parsePassword]
 }
