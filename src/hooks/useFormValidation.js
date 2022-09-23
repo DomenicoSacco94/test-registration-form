@@ -10,8 +10,12 @@ export const useFormValidation = () => {
 
     const [isFormValid, setIsFormValid] = useState(false);
 
+    const [formData, setFormData] = useState(null);
+
     useEffect(() =>
         setIsFormValid(validateForm(validations)), [validations])
+
+    const onSubmit = () => console.log(formData);
 
     const parseField = (fieldName, callback) => (event) => {
         const value = event.target.value;
@@ -20,11 +24,15 @@ export const useFormValidation = () => {
                 [fieldName]: callback(value)
             }
         )
+        setFormData({
+            ...formData,
+            [fieldName]: value
+        })
     }
 
     const parseMail = parseField("mail", validateMail);
 
     const parsePassword = parseField("password", validatePassword)
 
-    return [isFormValid, validations, parseMail, parsePassword]
+    return [isFormValid, validations, parseMail, parsePassword, onSubmit]
 }

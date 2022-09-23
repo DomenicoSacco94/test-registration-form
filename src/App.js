@@ -5,7 +5,7 @@ import {useFormValidation} from "./hooks/useFormValidation";
 
 const App = () => {
 
-    const [isFormValid, validations, parseMail, parsePassword] = useFormValidation();
+    const [isFormValid, validations, parseMail, parsePassword, onSubmit] = useFormValidation();
 
     return (
         <>
@@ -18,7 +18,7 @@ const App = () => {
                 <div className="formColumn">
                     <Input name="Password" type="text" validationResults={validations.password}
                            validationDivClass="validationDiv" onChange={parsePassword}/>
-                    <SubmitButton disabled={!isFormValid}/>
+                    <SubmitButton disabled={!isFormValid} onSubmit={onSubmit}/>
                 </div>
             </div>
         </>
