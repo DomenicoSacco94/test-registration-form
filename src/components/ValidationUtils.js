@@ -14,7 +14,7 @@ export const validatePassword = (password) => {
     }
 }
 
-export function validateForm(validations) {
+export const validateForm = (validations) => {
     return Object.values(validations.mail)
         .concat(Object.values(validations.password))
         .every(element => element);
@@ -25,26 +25,26 @@ const validateEmailAddress = (email) => {
     return expression.test(String(email).toLowerCase())
 }
 
-function validateCharactersLength(string) {
+const validateCharactersLength = (string) => {
     return string?.length>7;
 }
 
-function validateLowerCase(string) {
+const validateLowerCase = (string) => {
     const expression = /.*[a-z].*/;
     return !!string && expression.test(string);
 }
 
-function validateUpperCase(string) {
+const validateUpperCase = (string) => {
     const expression = /.*[A-Z].*/;
     return expression.test(string);
 }
 
-function validateNumber(string) {
+const validateNumber = (string) => {
     const expression = /.*\d.*/;
     return expression.test(string);
 }
 
-function validateSpecialCharacter(string) {
+const validateSpecialCharacter = (string) => {
     const expression= /[~`!#$%^&*+=\-[\]\\';,/{}|\\":<>?]/;
     return expression.test(string);
 }

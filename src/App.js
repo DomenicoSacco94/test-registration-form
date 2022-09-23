@@ -3,7 +3,7 @@ import SubmitButton from "./components/SubmitButton";
 import Input from "./components/Input";
 import {useFormValidation} from "./hooks/useFormValidation";
 
-function App() {
+const App = () => {
 
    const [isFormValid, validations, parseMail, parsePassword] = useFormValidation();
 
