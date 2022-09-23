@@ -12,8 +12,7 @@ const App = () => {
             <div className="appHeader"> Registration</div>
             <div className="formContainer fixedBox">
                 <div className="formColumn">
-                    <Input name="Email" type="email"
-                           validationDivClass="validationDivMail" onChange={parseMail}/>
+                    <Input name="Email" type="email" onChange={parseMail}/>
                 </div>
                 <div className="formColumn">
                     <Input name="Password" type="text" validationResults={validations.password}
