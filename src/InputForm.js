@@ -1,10 +1,11 @@
 function InputForm() {
 
     return (
-        <div className="form">
-        <input type="text" className="input" placeholder="mail"/>
-        <div> placeholder validations</div>
-        </div>
+        <>
+        <div> Input </div>
+        <input type="text" className="input formItem" placeholder="mail"/>
+        <div className="validationDiv"> placeholder validations</div>
+        </>
     );
 }
 

@@ -5,11 +5,15 @@ import SubmitButton from "./SubmitButton";
 function App() {
     return (
         <>
-        <div className="appHeader"> Upper Text</div>
-            <div className="formContainer fixed">
+        <div className="appHeader"> Registration </div>
+            <div className="formContainer fixedBox">
+                <div className="formColumn">
                 <InputForm />
+                </div>
+                <div className="formColumn">
                 <InputForm />
                 <SubmitButton/>
+                </div>
             </div>
         </>
     );

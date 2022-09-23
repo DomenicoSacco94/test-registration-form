@@ -1,7 +1,7 @@
 function SubmitButton() {
 
     return (
-        <div className="submitDiv"> <button class="submitButton"> Submit </button> </div>
+        <div className="submitDiv"> <button className="submitButton formItem"> Submit </button> </div>
     );
 }
 

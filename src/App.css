@@ -7,49 +7,53 @@
     margin: 15px;
 }
 
-.fixed {
+.fixedBox {
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     overflow: auto;
-    height: 30%;
-    border: 1px solid black;
+    margin: auto;
 }
 
 .formContainer {
+    height: 200px;
+    width: 40%;
+    border: 1px solid black;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
-    width: 40%;
-    margin: auto;
-    text-align: center;
+    padding: 20px;
 }
 
-.formData {
-    border: 1px solid black;
-}
-
-.form {
+.formColumn {
     flex: 50%;
+}
+
+.formItem {
+    padding: 10px;
+    width: 90%;
+    height: 40px;
 }
 
 .input{
     border: 1px solid black;
-    padding: 10px;
-    margin: 0px;
+    box-sizing: border-box;
 }
 
 .submitDiv {
-    text-align: left;
-    margin-left: auto;
+    flex: 50%;
 }
 
 .submitButton {
+    position: relative;
     background: black;
     color: white;
     text-align: center;
-    padding: 10px;
+
+}
+
+.validationDiv {
+    height: 100px;
 }
