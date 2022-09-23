@@ -1,7 +1,7 @@
-function SubmitButton() {
+function SubmitButton({onSubmit}) {
 
     return (
-        <div className="submitDiv"> <button type="submit" className="submitButton formItem"> Submit </button> </div>
+        <div className="submitDiv"> <button onClick={onSubmit} className="submitButton formItem"> Submit </button> </div>
     );
 }
 
