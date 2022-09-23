@@ -1,6 +1,7 @@
 import './App.css';
 import InputForm from "./InputForm";
 import SubmitButton from "./SubmitButton";
+import MailForm from "./MailForm";
 
 function App() {
     return (
@@ -8,7 +9,7 @@ function App() {
         <div className="appHeader"> Registration </div>
             <div className="formContainer fixedBox">
                 <div className="formColumn">
-                <InputForm />
+                <MailForm />
                 </div>
                 <div className="formColumn">
                 <InputForm />
