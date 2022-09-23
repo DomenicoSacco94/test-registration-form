@@ -53,6 +53,10 @@
     text-align: center;
 }
 
+.submitButton:disabled {
+    color: gray;
+}
+
 .validationDiv {
     min-height: 100px;
     padding: 10px;

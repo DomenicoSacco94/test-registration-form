@@ -2,35 +2,58 @@ import './App.css';
 import SubmitButton from "./SubmitButton";
 import {useState} from "react";
 import Input from "./Input";
+import {validateForm, validateMail} from "./ValidationUtils";
+
+const defaultValidationResults = {
+    mail : {
+        'valid mail address': false
+    },
+    password: {
+        '8+ characters': false,
+        'lowercase letter': false,
+        'uppercase letter': false,
+        'number': false,
+        'special character': false
+    }
+}
 
 function App() {
 
-    const [password, setPassword] = useState('');
-    const [mail, setMail] = useState('');
+    const [validations, setValidations] = useState(defaultValidationResults);
+    const [isFormValid, setIsFormValid] = useState(false);
 
-    const onSubmit = () => {
-        console.log(password)
-        console.log(mail)
+    const parseMail = (event) => {
+        setValidations({...validations ,
+            mail : {
+                'valid mail address': validateMail(event.target.value)
+            }}
+        )
+        setIsFormValid(validateForm(validations))
     }
 
-    const validationResults = [
-        '8+ characters',
-        'lowercase letter',
-        'uppercase letter',
-        'number',
-        'special character'
-    ]
+    const parsePassword = (event) => {
+        setValidations({...validations ,
+            password : {
+                '8+ characters': false,
+                'lowercase letter': false,
+                'uppercase letter': false,
+                'number': false,
+                'special character': false
+            }}
+        )
+        setIsFormValid(validateForm(validations))
+    }
 
     return (
         <>
         <div className="appHeader"> Registration </div>
             <div className="formContainer fixedBox">
                 <div className="formColumn">
-                <Input name="Email" type="mail" validationResults={['mailVal']} validationDivClass="validationDivMail" setValue={setMail}/>
+                <Input name="Email" type="mail" validationResults={validations.mail} validationDivClass="validationDivMail" onChange={parseMail}/>
                 </div>
                 <div className="formColumn">
-                <Input name="Password" type="text" validationResults={validationResults} validationDivClass="validationDiv" setValue={setPassword}/>
-                <SubmitButton onSubmit={onSubmit}/>
+                <Input name="Password" type="text" validationResults={validations.password} validationDivClass="validationDiv" onChange={parsePassword}/>
+                <SubmitButton disabled={!isFormValid}/>
                 </div>
             </div>
         </>

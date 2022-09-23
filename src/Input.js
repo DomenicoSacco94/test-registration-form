@@ -1,15 +1,11 @@
-function Input({name, type, validationDivClass, validationResults, setValue}) {
-
-    const onChange = (event) => {
-        setValue(event.target.value);
-    }
+function Input({name, type, validationDivClass, validationResults, onChange}) {
 
     return (
         <>
         <div className="label"> {name} </div>
         <input onChange={onChange} type={type} className="input formItem" placeholder="mail"/>
             <div className={validationDivClass}>
-                {validationResults.map(validation => <div> {validation} </div>)}
+                {Object.entries(validationResults).map(([key, value]) =>  <div key={key}> {value? 'true' : 'false'} {key} </div>)}
             </div>
         </>
     );
