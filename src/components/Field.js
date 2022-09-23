@@ -1,16 +1,12 @@
-import {Image} from "./Image";
+import {ValidationResults} from "./ValidationResults";
 
-export const Field = ({label, type, validationClass, validationResults, onChange}) => {
+export const Field = ({label, type, validationClass, validationResults, onChange, placeholder}) => {
 
     return (
         <>
             <div className="label"> {label} </div>
-            <input onChange={onChange} type={type} className="input formItem" placeholder="mail"/>
-            {validationResults && <div className={validationClass}>
-                {Object.entries(validationResults).map(([key, value]) => <div
-                    key={key}> {value ? <Image src="/correct.svg" alt="YES"/> :
-                    <Image src="/wrong.svg" alt="NO"/>} {key} </div>)}
-            </div>}
+            <input data-testid={`form-field-${label}`} placeholder={placeholder} onChange={onChange} type={type} className="input formItem"/>
+            <ValidationResults validationResults={validationResults} validationClass={validationClass} />
         </>
     );
 }

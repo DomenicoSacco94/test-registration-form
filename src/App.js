@@ -1,4 +1,4 @@
-import './App.css';
+import './components/LoginForm.css';
 
 import {LoginForm} from "./components/LoginForm";
 
