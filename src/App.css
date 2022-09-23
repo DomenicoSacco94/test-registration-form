@@ -18,7 +18,7 @@
 }
 
 .formContainer {
-    height: 200px;
+    height: 250px;
     width: 40%;
     border: 1px solid black;
     display: flex;
@@ -54,7 +54,17 @@
 }
 
 .validationDiv {
-    height: 100px;
+    min-height: 100px;
+    padding: 10px;
+}
+
+.validationDivMail {
+    min-height: 20px;
+    padding: 10px;
+}
+
+.label {
+    margin: 10px;
 }
 
 @media only screen
@@ -68,11 +78,11 @@ and (max-width: 480px) {
     }
 
     .validationDiv {
-        height: 50px;
+        min-height: 70px;
     }
 
     .formContainer {
-        height: 50%;
+        height: 420px;
         width: 80%;
         border: 1px solid black;
         display: block;
@@ -93,6 +103,10 @@ and (max-width: 480px) {
 
     .submitDiv {
         display: block;
+    }
+
+    .label {
+        margin: 5px;
     }
 
 }
