@@ -1,6 +1,7 @@
 import {fireEvent, render, screen, within} from '@testing-library/react';
 import App from '../App';
 import {validateMail, validatePassword} from "./ValidationUtils";
+import '@testing-library/jest-dom';
 
 describe('LoginForm', () => {
 
